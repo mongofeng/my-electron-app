@@ -6,7 +6,7 @@ function createWindow () {
     width: 800,
     height: 600,
     webPreferences: {
-      nodeIntegration: false
+        preload: path.join(__dirname, './server/preload.js')
     }
   })
 
@@ -20,6 +20,7 @@ function createWindow () {
 
 
 app.whenReady().then(() => {
+    console.log('app.whenReady')
   createWindow()
 
   app.on('activate', () => {
@@ -28,7 +29,9 @@ app.whenReady().then(() => {
 
 })
 
-app.on('window-all-closed', () => {
+app.on('window-all-closed', () => {ct
+    console.log('window-all-closed')
+
     if (process.platform !== 'darwin') {
       app.quit()
     }
