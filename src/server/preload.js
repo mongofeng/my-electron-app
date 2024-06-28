@@ -1,13 +1,17 @@
-window.addEventListener('DOMContentLoaded', () => {
-    const replaceText = (selector, text) => {
-      const element = document.getElementById(selector)
-      if (element) element.innerText = text
-    }
+const {contextBridge, ipcRenderer} = require('electron')
 
-    console.log(process.versions)
-  
-    for (const dependency of ['chrome', 'node', 'electron']) {
-     
-      replaceText(`${dependency}-version`, process.versions[dependency])
-    }
-  })
+// contextBridge API can only be used when contextIsolation is enabled
+
+// contextBridge.exposeInMainWorld('electron', {
+//   ipcRenderer: ipcRenderer
+// })
+
+// contextBridge.exposeInMainWorld('versions', {
+//   node: () => {
+//     return process.versions.node
+//   }, chrome: () => {
+//     return process.versions.chrome
+//   }, electron: () => {
+//     return process.versions.electron
+//   }, ping: () => ipcRenderer.invoke('ping')
+// })
