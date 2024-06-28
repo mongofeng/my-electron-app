@@ -24,7 +24,7 @@ function createWindow () {
 app.whenReady().then(() => {
     console.log('app.whenReady')
 
-  ipcMain.handle('ping', () => 'pong')
+  // ipcMain.handle('ping', () => 'pong')
   createWindow()
 
   app.on('activate', () => {
@@ -37,6 +37,6 @@ app.on('window-all-closed', () => {ct
     console.log('window-all-closed')
 
     if (process.platform !== 'darwin') {
-      app.quit()
+      app?.quit()
     }
 })

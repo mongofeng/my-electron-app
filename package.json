@@ -1,15 +1,16 @@
 {
   "name": "my-electron-app",
   "version": "1.0.0",
-  "description": "",
+  "description": "test",
   "main": "src/main.js",
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",
-    "make": "electron-forge make"
+    "make": "electron-forge make",
+    "dev": "electron ."
   },
   "keywords": [],
-  "author": "",
+  "author": "yangpu",
   "license": "ISC",
   "dependencies": {
     "electron-squirrel-startup": "^1.0.1"
