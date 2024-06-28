@@ -15,6 +15,10 @@ info.innerHTML = `
 const func = async () => {
     const response = await ipcRenderer.invoke('ping')
     console.log(response) // 打印 'pong'
+    const div = document.createElement('div')
+    div.innerHTML = response
+    document.body.appendChild(div)
+  
 }
 
 
