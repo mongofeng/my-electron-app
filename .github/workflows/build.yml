@@ -1,0 +1,39 @@
+name: Electron Forge Build and Publish
+
+on:
+    push:
+        branches:
+          - master
+
+
+jobs:
+  build-and-publish:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [macos-latest, windows-latest, ubuntu-latest]
+        platform: [darwin, win32, linux]
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup Node.js environment
+      uses: actions/setup-node@v2
+      with:
+        node-version: 18
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Authenticate with GitHub
+      run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.TOKEN }}" > .npmrc
+
+    - name: Configure Electron Forge for ${{ matrix.platform }}
+      run: |
+        echo "ELECTRON_FORGE_MAKER_PLATFORMS=${{ matrix.platform }}" >> $GITHUB_ENV
+
+    - name: Build and Publish with Electron Forge
+      env:
+        GITHUB_TOKEN: ${{ secrets.TOKEN }}
+      run: npm run publish
