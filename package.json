@@ -3,10 +3,15 @@
   "version": "1.0.0",
   "description": "test",
   "main": "src/main.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mongofeng/my-electron-app.git"
+  },
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",
     "make": "electron-forge make",
+    "publish": "electron-forge publish",
     "dev": "electron ."
   },
   "keywords": [],
