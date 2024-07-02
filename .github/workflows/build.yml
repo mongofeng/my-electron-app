@@ -17,7 +17,7 @@ jobs:
     steps:
     - name: Check ACCESS_TOKEN presence
       run: |
-        echo "Checking if ACCESS_TOKEN can be accessed...${{ secrets.ACCESS_TOKEN }}"
+        echo "Checking if ACCESS_TOKEN can be accessed..."
         if [ -z "${{ secrets.ACCESS_TOKEN }}" ]; then
         echo "ACCESS_TOKEN is not set or empty."
         exit 1
