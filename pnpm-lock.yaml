@@ -11,6 +11,9 @@ importers:
       electron-squirrel-startup:
         specifier: ^1.0.1
         version: 1.0.1
+      update-electron-app:
+        specifier: ^3.0.0
+        version: 3.0.0
     devDependencies:
       '@electron-forge/cli':
         specifier: ^7.4.0
@@ -757,6 +760,9 @@ packages:
     resolution: {integrity: sha512-nBF+F1rAZVCu/p7rjzgA+Yb4lfYXrpl7a6VmJrU8wF9I1CKvP/QwPNZHnOlwbTkY6dvtFIzFMSyQXbLoTQPRpA==}
     engines: {node: '>=8'}
 
+  github-url-to-object@4.0.6:
+    resolution: {integrity: sha512-NaqbYHMUAlPcmWFdrAB7bcxrNIiiJWJe8s/2+iOc9vlcHlwHqSGrPk+Yi3nu6ebTwgsZEa7igz+NH2vEq3gYwQ==}
+
   glob-parent@5.1.2:
     resolution: {integrity: sha512-AOIgSQCepiJYwP3ARnGx+5VnTu2HBYdzbGP45eLw1vr3zB3vZLeyed1sC9hnbcOc9/SrMyM5RPQrkGz4aS9Zow==}
     engines: {node: '>= 6'}
@@ -924,6 +930,9 @@ packages:
   is-unicode-supported@0.1.0:
     resolution: {integrity: sha512-knxG2q4UC3u8stRGyAVJCOdxFmv5DZiRcdlIaAQXAbSfJya+OhopNotLQrstBhququ4ZpuKbDc/8S6mgXgPFPw==}
     engines: {node: '>=10'}
+
+  is-url@1.2.4:
+    resolution: {integrity: sha512-ITvGim8FhRiYe4IQ5uHSkj7pVaPDrCTkNd3yq3cV7iZAcJdHTUMPMEHcqSOy9xZ9qFenQCvi+2wjH9a1nXqHww==}
 
   is-windows@1.0.2:
     resolution: {integrity: sha512-eXK1UInq2bPmjyX6e3VHIzMLobc4J94i4AWn+Hpq3OU5KkrRC96OAcR3PRJ/pGu6m8TRnBHP9dkXQVsT/COVIA==}
@@ -1590,6 +1599,9 @@ packages:
   universalify@2.0.1:
     resolution: {integrity: sha512-gptHNQghINnc/vTGIk0SOFGFNXw7JVrlRUtConJRlvaw6DuX0wO5Jeko9sWrMBhh+PsYAZ7oXAiOnf/UKogyiw==}
     engines: {node: '>= 10.0.0'}
+
+  update-electron-app@3.0.0:
+    resolution: {integrity: sha512-Ccs46fgUEcMpSRPMNw82DFMux2MGi5tkKkEpV723JmtPNI3qAtxvTeiYkKczN2/LehA3U7JGrGr4MhraxGdRTw==}
 
   username@5.1.0:
     resolution: {integrity: sha512-PCKbdWw85JsYMvmCv5GH3kXmM66rCd9m1hBEDutPNv94b/pqCMT4NtcKyeWYvLFiE8b+ha1Jdl8XAaUdPn5QTg==}
@@ -2755,6 +2767,10 @@ snapshots:
     dependencies:
       pump: 3.0.0
 
+  github-url-to-object@4.0.6:
+    dependencies:
+      is-url: 1.2.4
+
   glob-parent@5.1.2:
     dependencies:
       is-glob: 4.0.3
@@ -2934,6 +2950,8 @@ snapshots:
   is-stream@1.1.0: {}
 
   is-unicode-supported@0.1.0: {}
+
+  is-url@1.2.4: {}
 
   is-windows@1.0.2: {}
 
@@ -3595,6 +3613,12 @@ snapshots:
   universalify@0.1.2: {}
 
   universalify@2.0.1: {}
+
+  update-electron-app@3.0.0:
+    dependencies:
+      github-url-to-object: 4.0.6
+      is-url: 1.2.4
+      ms: 2.1.2
 
   username@5.1.0:
     dependencies:

@@ -18,7 +18,8 @@
   "author": "yangpu",
   "license": "ISC",
   "dependencies": {
-    "electron-squirrel-startup": "^1.0.1"
+    "electron-squirrel-startup": "^1.0.1",
+    "update-electron-app": "^3.0.0"
   },
   "devDependencies": {
     "@electron-forge/cli": "^7.4.0",
