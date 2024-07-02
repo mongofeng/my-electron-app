@@ -15,6 +15,18 @@ jobs:
         platform: [darwin, win32, linux]
 
     steps:
+    - name: Check ACCESS_TOKEN presence
+      run: |
+        echo "Checking if ACCESS_TOKEN can be accessed...${{ secrets.ACCESS_TOKEN }}"
+        if [ -z "${{ secrets.ACCESS_TOKEN }}" ]; then
+        echo "ACCESS_TOKEN is not set or empty."
+        exit 1
+        else
+        echo "ACCESS_TOKEN is set and accessible."
+        # 这里可以执行一些不涉及打印Secrets值的操作，比如发起一个HTTP请求验证Token有效性
+        # 注意：实际操作中应避免直接在日志中暴露任何敏感信息
+        fi
+      shell: bash
     - name: Checkout code
       uses: actions/checkout@v2
 
@@ -27,7 +39,7 @@ jobs:
       run: npm install
 
     - name: Authenticate with GitHub
-      run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.TOKEN }}" > .npmrc
+      run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.ACCESS_TOKEN }}" > .npmrc
 
     - name: Configure Electron Forge for ${{ matrix.platform }}
       run: |
@@ -35,5 +47,5 @@ jobs:
 
     - name: Build and Publish with Electron Forge
       env:
-        GITHUB_TOKEN: ${{ secrets.TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
       run: npm run publish
