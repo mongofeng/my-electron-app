@@ -5,7 +5,7 @@
   "main": "src/main.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mongofeng/my-electron-app.git"
+    "url": "https://github.com/mongofeng/my-electron-app"
   },
   "scripts": {
     "start": "electron-forge start",
